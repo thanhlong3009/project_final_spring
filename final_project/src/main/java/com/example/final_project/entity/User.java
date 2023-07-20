@@ -1,5 +1,6 @@
 package com.example.final_project.entity;
 
+import com.example.final_project.statics.StatusUser;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -17,11 +18,22 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User extends BaseEntity {
 
-    String username;
+    String email;
+
+    String fullname;
 
     String password;
 
+    String dob;
+
+    String phone;
+
+    String avartar;
+
     boolean activated;
+
+    @Enumerated(EnumType.STRING)
+    StatusUser statusl;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
@@ -33,6 +45,19 @@ public class User extends BaseEntity {
 
     LocalDateTime deletedDateTime;
 
-//    String refreshToken;
+    @OneToOne(mappedBy = "user")
+    Teacher teacher;
+
+    @ManyToMany
+    @JoinTable(name = "students_classes",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "class_id")
+    )
+    Set<Class> classes;
+
+
+
+
+
 
 }

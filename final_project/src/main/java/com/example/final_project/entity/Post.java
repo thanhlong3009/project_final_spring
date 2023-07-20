@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -13,30 +12,23 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "course")
+@Table(name = "posts")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class Post extends BaseEntity {
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    User user;
 
-    String name;
+    String title;
 
-    String introduce;
-
-    String duration;
-
-    String schedule;
-
-    Double price;
+    String content;
 
     Status status;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "courses_key_topics",
+    @JoinTable(name = "posts_key_topics",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "key_topic_id "))
-    private Set<KeyTopic> keyTopics = new HashSet<>();
-
+    Set<KeyTopic> keyTopics;
 
 }

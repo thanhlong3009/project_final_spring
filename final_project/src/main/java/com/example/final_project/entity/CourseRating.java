@@ -12,10 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "course_ratings")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CourseRating {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class CourseRating  extends  BaseEntity{
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")

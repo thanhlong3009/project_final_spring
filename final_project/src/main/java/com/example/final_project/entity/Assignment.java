@@ -21,11 +21,11 @@ public class Assignment extends  BaseEntity{
     String content;
 
     @Temporal(TemporalType.TIMESTAMP)
-    Date dealine;
+    Date deadline;
 
     @ManyToOne
     @JoinColumn (name = "lesson_id")
-    Lessson lessson;
+    Lesson lesson;
 
 
 

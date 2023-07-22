@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Table(name = "lessons")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Lessson extends BaseEntity{
+public class Lesson extends BaseEntity{
     String content;
     Timestamp date;
 

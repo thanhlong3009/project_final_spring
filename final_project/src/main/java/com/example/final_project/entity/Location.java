@@ -12,10 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "locations")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Location {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class Location extends BaseEntity {
 
     String name;
 

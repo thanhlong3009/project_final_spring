@@ -12,10 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "key_topics")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class KeyTopic {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class KeyTopic extends BaseEntity {
+
 
     String topic;
 }

@@ -22,7 +22,7 @@ public class Attendance extends BaseEntity  {
 
     @ManyToOne
     @JoinColumn(name = "lesson_id")
-    Lessson lessson;
+    Lesson lesson;
 
     StatusAttendance statusAttendance;
 }

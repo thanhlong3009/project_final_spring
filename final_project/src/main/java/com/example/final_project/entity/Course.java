@@ -15,10 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "course")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class Course extends  BaseEntity{
 
     String name;
 

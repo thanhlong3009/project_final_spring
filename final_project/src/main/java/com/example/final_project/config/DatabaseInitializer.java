@@ -34,7 +34,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         roleRepository.save(adminRole);
 
         User user = new User();
-        user.setUsername("admin");
+        user.setEmail("admin");
         user.setPassword(passwordEncoder.encode("admin123")); // Encrypt the password
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
